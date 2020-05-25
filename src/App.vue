@@ -1,6 +1,7 @@
 <template>
     <div id="app">
         <Navigation />
+        <router-view />
         <footer>
             {{ businessName }}
         </footer>
@@ -29,14 +30,13 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    margin-top: 60px;
 }
 
 footer {
     width: 100%;
     padding: 10px;
     background-color: #eee;
-    position: absolute;
+    position: relative;
     bottom: 0;
 }
 </style>

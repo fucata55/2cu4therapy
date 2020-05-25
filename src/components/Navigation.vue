@@ -1,11 +1,11 @@
 <template>
     <div>
         <md-tabs v-if="false" md-alignment="centered">
-            <md-tab id="tab-home" md-label="Home">Home</md-tab>
-            <md-tab id="tab-techniques" md-label="Techniques">Techniques</md-tab>
-            <md-tab id="tab-services" md-label="Services">Services</md-tab>
-            <md-tab id="tab-gifts" md-label="Gifts">Gifts</md-tab>
-            <md-tab id="tab-contact" md-label="Contact">Contact</md-tab>
+            <md-tab id="tab-home" md-label="Home" to="/" exact></md-tab>
+            <md-tab id="tab-techniques" md-label="Techniques" to="/techniques" exact></md-tab>
+            <md-tab id="tab-services" md-label="Services" to="/services" exact></md-tab>
+            <md-tab id="tab-gifts" md-label="Gifts" to="/gifts" exact></md-tab>
+            <md-tab id="tab-contact" md-label="Contact" to="/contact" exact></md-tab>
         </md-tabs>
         <md-toolbar v-else class="md-primary">
             <div class="md-toolbar-section-start">
@@ -21,26 +21,30 @@
             <md-toolbar class="md-transparent" md-elevation="0">
                 <span class="md-title">{{ businessName }}</span>
             </md-toolbar>
-
             <md-list>
-                <md-list-item>
-                    <md-icon>move_to_inbox</md-icon>
-                    <span class="md-list-item-text">Inbox</span>
+                <md-list-item to="/" exact @click="showNavigation = false">
+                    <md-icon>home</md-icon>
+                    <span class="md-list-item-text">Home</span>
                 </md-list-item>
 
-                <md-list-item>
-                    <md-icon>send</md-icon>
-                    <span class="md-list-item-text">Sent Mail</span>
+                <md-list-item to="/techniques" exact @click="showNavigation = false">
+                    <md-icon>airline_seat_flat</md-icon>
+                    <span class="md-list-item-text">Techniques</span>
                 </md-list-item>
 
-                <md-list-item>
-                    <md-icon>delete</md-icon>
-                    <span class="md-list-item-text">Trash</span>
+                <md-list-item to="/services" exact @click="showNavigation = false">
+                    <md-icon>room_service</md-icon>
+                    <span class="md-list-item-text">Services</span>
                 </md-list-item>
 
-                <md-list-item>
-                    <md-icon>error</md-icon>
-                    <span class="md-list-item-text">Spam</span>
+                <md-list-item to="/gifts" exact @click="showNavigation = false">
+                    <md-icon>card_giftcard</md-icon>
+                    <span class="md-list-item-text">Gifts</span>
+                </md-list-item>
+
+                <md-list-item to="/contact" exact @click="showNavigation = false">
+                    <md-icon>phone</md-icon>
+                    <span class="md-list-item-text">Contact</span>
                 </md-list-item>
             </md-list>
         </md-drawer>
@@ -59,4 +63,8 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scope>
+.router-exact-active .md-icon.md-theme-default.md-icon-font {
+    color: inherit;
+}
+</style>

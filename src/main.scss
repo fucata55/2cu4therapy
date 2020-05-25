@@ -1,0 +1,40 @@
+@import 'vue-material/dist/theme/engine'; // Import theme engine
+
+$primary: md-get-palette-color(lightgreen, A200);
+$accent: md-get-palette-color(lime, 500);
+
+@include md-register-theme(
+    'default',
+    (
+        primary: $primary,
+        accent: $accent,
+    )
+);
+
+@import 'vue-material/dist/theme/all'; // Apply the theme
+
+.main-content {
+    padding: 8px;
+    text-align: start;
+}
+
+.content-wrapper {
+    min-height: calc(100vh - 95px);
+}
+
+html,
+body {
+    overflow-y: scroll;
+}
+
+h1 {
+    line-height: 1.1em;
+}
+
+h2 {
+    color: #0e8622;
+}
+
+.bold {
+    font-weight: bold;
+}
